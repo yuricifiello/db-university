@@ -2,7 +2,7 @@
 
 ## `departments`
 
-| Column Name | Data Type    | Index       | Constraints    | Description                  |
+| Column Name | Type         | Index       | Attributes     | Description                  |
 | ----------- | ------------ | ----------- | -------------- | ---------------------------- |
 | **id**      | INT          | PRIMARY KEY | AUTO_INCREMENT | Unique ID for the department |
 | name        | VARCHAR(255) |             | NOT NULL       | Name of the department       |
@@ -11,7 +11,7 @@
 
 ## `degree_courses`
 
-| Column Name   | Data Type    | Index       | Constraints    | Description                     |
+| Column Name   | Type         | Index       | Attributes     | Description                     |
 | ------------- | ------------ | ----------- | -------------- | ------------------------------- |
 | **id**        | INT          | PRIMARY KEY | AUTO_INCREMENT | Unique ID for the degree course |
 | department_id | INT          | FOREIGN KEY | NOT NULL       | Link to the `departments` table |
@@ -21,7 +21,7 @@
 
 ## `students`
 
-| Column Name      | Data Type    | Index       | Constraints      | Description                        |
+| Column Name      | Type         | Index       | Attributes       | Description                        |
 | ---------------- | ------------ | ----------- | ---------------- | ---------------------------------- |
 | **id**           | VARCHAR(50)  | PRIMARY KEY |                  | Unique student registration number |
 | degree_course_id | INT          | FOREIGN KEY | NOT NULL         | Link to the `degree_courses` table |
@@ -33,7 +33,7 @@
 
 ## `teachers`
 
-| Column Name | Data Type    | Index       | Constraints      | Description               |
+| Column Name | Type         | Index       | Attributes       | Description               |
 | ----------- | ------------ | ----------- | ---------------- | ------------------------- |
 | **id**      | INT          | PRIMARY KEY | AUTO_INCREMENT   | Unique ID for the teacher |
 | first_name  | VARCHAR(100) |             | NOT NULL         | Teacher's first name      |
@@ -44,7 +44,7 @@
 
 ## `courses`
 
-| Column Name      | Data Type    | Index       | Constraints    | Description                        |
+| Column Name      | Type         | Index       | Attributes     | Description                        |
 | ---------------- | ------------ | ----------- | -------------- | ---------------------------------- |
 | **id**           | INT          | PRIMARY KEY | AUTO_INCREMENT | Unique ID for the course           |
 | degree_course_id | INT          | FOREIGN KEY | NOT NULL       | Link to the `degree_courses` table |
@@ -55,7 +55,7 @@
 
 ## `exam_sessions`
 
-| Column Name | Data Type   | Index       | Constraints    | Description                    |
+| Column Name | Type        | Index       | Attributes     | Description                    |
 | ----------- | ----------- | ----------- | -------------- | ------------------------------ |
 | **id**      | INT         | PRIMARY KEY | AUTO_INCREMENT | Unique ID for the exam session |
 | course_id   | INT         | FOREIGN KEY | NOT NULL       | Link to the `courses` table    |
@@ -66,16 +66,16 @@
 
 ## `course_teachers` (Linking Table)
 
-| Column Name    | Data Type | Index                    | Constraints | Description                  |
-| -------------- | --------- | ------------------------ | ----------- | ---------------------------- |
-| **course_id**  | INT       | PRIMARY KEY, FOREIGN KEY | NOT NULL    | Link to the `courses` table  |
-| **teacher_id** | INT       | PRIMARY KEY, FOREIGN KEY | NOT NULL    | Link to the `teachers` table |
+| Column Name    | Type | Index                    | Attributes | Description                  |
+| -------------- | ---- | ------------------------ | ---------- | ---------------------------- |
+| **course_id**  | INT  | PRIMARY KEY, FOREIGN KEY | NOT NULL   | Link to the `courses` table  |
+| **teacher_id** | INT  | PRIMARY KEY, FOREIGN KEY | NOT NULL   | Link to the `teachers` table |
 
 ---
 
 ## `exam_registrations` (Linking Table)
 
-| Column Name     | Data Type   | Index       | Constraints    | Description                       |
+| Column Name     | Type        | Index       | Attributes     | Description                       |
 | --------------- | ----------- | ----------- | -------------- | --------------------------------- |
 | **id**          | INT         | PRIMARY KEY | AUTO_INCREMENT | Unique ID for the registration    |
 | student_id      | VARCHAR(50) | FOREIGN KEY | NOT NULL       | Link to the `students` table      |
